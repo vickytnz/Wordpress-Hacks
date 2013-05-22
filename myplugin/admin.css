@@ -1,0 +1,22 @@
+#adminmenu .menu-icon-calendar div.wp-menu-image ,
+#adminmenu .menu-icon-radio div.wp-menu-image ,
+#adminmenu .menu-icon-tv div.wp-menu-image {
+overflow: hidden;
+}
+
+#adminmenu .menu-icon-calendar div.wp-menu-image a img,
+#adminmenu .menu-icon-radio div.wp-menu-image  a img,
+#adminmenu .menu-icon-tv div.wp-menu-image  a img
+{
+margin-top: -24px;
+}
+
+#adminmenu  .wp-has-current-submenu.menu-icon-calendar div.wp-menu-image a img,
+#adminmenu  .wp-has-current-submenu.menu-icon-tv div.wp-menu-image a img,
+#adminmenu  .wp-has-current-submenu.menu-icon-radio div.wp-menu-image a img,
+#adminmenu .menu-icon-calendar:hover div.wp-menu-image a img,
+#adminmenu .menu-icon-radio:hover div.wp-menu-image a img,
+#adminmenu .menu-icon-tv:hover div.wp-menu-image  a img
+{
+margin-top: 0;
+}
