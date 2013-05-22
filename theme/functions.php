@@ -48,7 +48,7 @@ add_action('admin_head', 'my_custom_logo');
  
 function my_custom_logo() {
 echo '<style type="text/css">#header-logo { background-image: url('.get_bloginfo('template_directory').'/images/EXAMPLE.png) !important; }</style>';
-/* Style with .login h1 a if needed*/
+
 }
 
 // Login URL
@@ -67,7 +67,20 @@ function change_title(){
 
 // login page logo
 function custom_login_logo() {
-    echo '<style type="text/css">h1 a { background: url('.get_bloginfo('template_directory').'/images/EXAMPLE.png) 50% 50% no-repeat !important; }</style>';
+    echo '<style type="text/css">h1 a { background: url('. get_stylesheet_directory_uri() .'/images/EXAMPLE.png) 50% 50% no-repeat !important; }</style>';
+/* Style with .login h1 a if needed
+	/* Style with .login h1 a if needed
+.login h1 a {
+width: EXAMPLEpx;
+height: EXAMPLEpx;
+text-indent: -9999px;
+overflow: hidden;
+padding-bottom: 15px;
+display: block;
+}
+	
+	
+*/
 }
 add_action('login_head', 'custom_login_logo');
 /*End customising login and dashboard */
@@ -116,6 +129,23 @@ function no_errors_please(){
   return 'Either your password or user name is incorrect';
 }
 add_filter( 'login_errors', 'no_errors_please' );
+
+/**
+ * Genericize login error messages
+ */
+ 
+ /* Or, change for at least one
+function brazenly_genericize_login_errors( $error ) {
+ 
+	$new_message = 'The credentials provided are incorrect.';
+	$error = str_replace( 'Invalid username.', $new_message, $error );
+	$error = preg_replace( '{The password you entered for the username <strong>.*</strong> is incorrect\.}', $new_message, $error );
+ 
+	return $error;
+ 
+}
+add_filter( 'login_errors', 'brazenly_genericize_login_errors' );
+*/
 
 /* Stop WP from guessing URLS */
 add_filter('redirect_canonical', 'stop_guessing');
